@@ -78,7 +78,8 @@ install_dependencies(){
         D_DEPENDENCIES="\
             git build-essential autoconf apt-utils libtool \
             libboost-all-dev pkg-config libcurl4-openssl-dev \
-            libconfig++-dev libncurses5-dev libboost1.49 libboost1.49-dev wget"
+            libconfig++-dev libncurses5-dev libboost1.49 libboost1.49-dev \
+            libboost-date-time1.49 libboost-date-time1.49-dev wget"
         if [ "$ROOT_INSTALL" = 1 ]; then
             apt-get -y remove libzmq*
             apt-get -y install $D_DEPENDENCIES
