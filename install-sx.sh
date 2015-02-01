@@ -73,11 +73,12 @@ install_dependencies(){
     flavour_id=`cat /etc/*-release | egrep -i "^ID=" | cut -f 2 -d "="`
     echo " Flavour: $flavour_id."
     echo
+    #methimpact : dirty raw warriorz HACK >.<
     if [ "$flavour_id" = "raspbian" ]; then
         D_DEPENDENCIES="\
             git build-essential autoconf apt-utils libtool \
             libboost-all-dev pkg-config libcurl4-openssl-dev \
-            libconfig++-dev libncurses5-dev wget"
+            libconfig++-dev libncurses5-dev libboost1.49 libboost1.49-dev wget"
         if [ "$ROOT_INSTALL" = 1 ]; then
             apt-get -y remove libzmq*
             apt-get -y install $D_DEPENDENCIES
@@ -89,7 +90,7 @@ install_dependencies(){
             echo
             continue_or_exit
         fi
-    elif [ "$flavour_id" = "raspbian" ]; then
+    elif [ "$flavour_id" = "kali" ]; then
         U_DEPENDENCIES="\
             git build-essential autoconf apt-utils libtool \
             pkg-config libcurl4-openssl-dev \
